@@ -18,5 +18,6 @@ FROM nginx
 
 # copy something from that main (name as base image above)
 
+# /usr/share/nginx/html this path is the by default path of nginx (checkout docker hub)
 COPY --from=main '/app/build' '/usr/share/nginx/html'
 

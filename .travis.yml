@@ -1,0 +1,14 @@
+# sudo permisson is required for root access in order to execute this build 
+sudo: required 
+
+# Hey travis we need a copy of docker
+services: 
+  - docker
+
+# this is used because we build docker image before the test run
+before_i nstall:
+  - docker build -t ronak07/docker-react -f Dockerfile.dev .
+
+# script is used to run our test suite
+script:
+  - docker run -e CI=true ronak07/docker-react npm run test 

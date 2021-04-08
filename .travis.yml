@@ -6,7 +6,7 @@ services:
   - docker
 
 # this is used because we build docker image before the test run
-before_i nstall:
+before_install:
   - docker build -t ronak07/docker-react -f Dockerfile.dev .
 
 # script is used to run our test suite

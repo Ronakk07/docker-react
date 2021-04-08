@@ -16,6 +16,8 @@ RUN npm run build
 
 FROM nginx
 
+# Port MApping for incoming traffic when deploy to cloud
+EXPOSE 80
 # copy something from that main (name as base image above)
 
 # /usr/share/nginx/html this path is the by default path of nginx (checkout docker hub)

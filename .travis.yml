@@ -12,3 +12,17 @@ before_i nstall:
 # script is used to run our test suite
 script:
   - docker run -e CI=true ronak07/docker-react npm run test 
+
+# Tell Travis if test is complete how to deploy our app to aws..
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-273134686484"
+  bucket_path: "docker"
+  on:
+    branch: master 
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
